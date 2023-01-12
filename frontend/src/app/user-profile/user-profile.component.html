@@ -1,0 +1,156 @@
+<app-header></app-header>
+
+<br />
+
+<div class="content">
+  <div class="row">
+    <div class="col-12 col-md-1">
+      <img [src]="picture" class="profilePicture" />
+    </div>
+
+    <div class="col-12 col-md-9 offset-md-2">
+      <div class="row">
+        <div class="col-12 col-md-2"><h1>Profil</h1></div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-3"><b>Korisnicko ime:</b></div>
+        <div class="col-12 col-md-3">
+          <div [hidden]="changingInfo">{{ user.username }}</div>
+          <div [hidden]="!changingInfo">
+            <input type="text" [(ngModel)]="username" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-3"><b>Ime:</b></div>
+        <div class="col-12 col-md-3">
+          <div [hidden]="changingInfo">{{ user.firstname }}</div>
+          <div [hidden]="!changingInfo">
+            <input type="text" [(ngModel)]="firstname" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-3"><b>Prezime:</b></div>
+        <div class="col-12 col-md-3">
+          <div [hidden]="changingInfo">{{ user.lastname }}</div>
+          <div [hidden]="!changingInfo">
+            <input type="text" [(ngModel)]="lastname" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-3"><b>Adresa:</b></div>
+        <div class="col-12 col-md-3">
+          <div [hidden]="changingInfo">{{ user.address }}</div>
+          <div [hidden]="!changingInfo">
+            <input type="text" [(ngModel)]="address" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-3"><b>Telefon:</b></div>
+        <div class="col-12 col-md-3">
+          <div [hidden]="changingInfo">{{ user.phone }}</div>
+          <div [hidden]="!changingInfo">
+            <input type="text" [(ngModel)]="phone" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-3"><b>Email:</b></div>
+        <div class="col-12 col-md-3">
+          <div [hidden]="changingInfo">{{ user.email }}</div>
+          <div [hidden]="!changingInfo">
+            <input type="text" [(ngModel)]="email" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row" [hidden]="!changingInfo">
+        <div class="col-12 col-md-3"><b>Slika:</b></div>
+        <div class="col-12 col-md-3">
+          <input type="file" accept="image" (change)="selectImage($event)" />
+        </div>
+      </div>
+
+      <div class="row" [hidden]="!changingInfo">
+        <div class="col-12 col-md-3"><b>Stara lozinka:</b></div>
+        <div class="col-12 col-md-3">
+          <input type="password" [(ngModel)]="confirmOldPassword" />
+        </div>
+      </div>
+
+      <div class="row" [hidden]="!changingInfo">
+        <div class="col-12 col-md-3"><b>Nova lozinka:</b></div>
+        <div class="col-12 col-md-3">
+          <input type="password" [(ngModel)]="newPassword" />
+        </div>
+      </div>
+
+      <div class="row" [hidden]="!changingInfo">
+        <div class="col-12 col-md-3"><b>Potvrdi lozinku:</b></div>
+        <div class="col-12 col-md-3">
+          <input type="password" [(ngModel)]="confirmNewPassword" />
+        </div>
+      </div>
+
+      <div class="row" *ngIf="!changingInfo">
+        <div class="col-12 col-md-3">
+          <input
+            type="button"
+            class="btn btn-light"
+            value="Izmeni podatke"
+            (click)="beginChangingInfo()"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-2">
+          <input
+            type="button"
+            class="btn btn-light"
+            value="Zavrsi izmenu"
+            (click)="submitChangingInfo()"
+            [hidden]="!changingInfo"
+          />
+        </div>
+        &nbsp;
+        <div class="col-12 col-md-2">
+          <input
+            type="button"
+            class="btn btn-light"
+            value="Odustani"
+            (click)="cancelChangingInfo()"
+            [hidden]="!changingInfo"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <span class="error">{{ msgUpdateInfo }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="divMultipleCharts">
+      <div class="divSingleChart">
+        <canvas id="booksPerMonthChart" width="400" height="400"></canvas>
+      </div>
+      &nbsp;&nbsp;&nbsp;
+      <div class="divSingleChart">
+        <canvas id="booksPerGenreChart" width="400" height="400"></canvas>
+      </div>
+    </div>
+  </div>
+</div>

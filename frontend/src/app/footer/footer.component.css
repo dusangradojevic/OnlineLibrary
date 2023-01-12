@@ -1,0 +1,10 @@
+#footer {
+  min-height: 50px;
+  background-color: rgba(102, 167, 252, 0.8);
+  align-items: center;
+  text-align: center;
+}
+
+.footerText {
+  color: white;
+}

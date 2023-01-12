@@ -1,0 +1,145 @@
+[
+  {
+    "id": 0,
+    "name": "Na Drini cuprija",
+    "authors": ["Ivo Andric"],
+    "genre": ["Roman"],
+    "publisher": "Delfi",
+    "publishYear": 1945,
+    "language": "Srpski",
+    "photo": "src/uploads/book_naDriniCuprija.jpg",
+    "userId": 1,
+    "numberInStock": 0,
+    "status": "accepted",
+    "numberOfTimesTaken": 3,
+    "isBookOfTheDay": 1
+  },
+
+  {
+    "id": 1,
+    "name": "Dok se kafa ne ohladi",
+    "authors": ["Tosikazu Kavaguci"],
+    "genre": ["Roman"],
+    "publisher": "Vulkan",
+    "publishYear": 2015,
+    "language": "Engleski",
+    "photo": "src/uploads/book_dokSeKafaNeOhladi.jpg",
+    "userId": 1,
+    "numberInStock": 3,
+    "status": "accepted",
+    "numberOfTimesTaken": 2,
+    "isBookOfTheDay": 0
+  },
+
+  {
+    "id": 2,
+    "name": "Covek po imenu Uve",
+    "authors": ["Fredrik Bakman"],
+    "genre": ["Komedija", "Beletristika"],
+    "publisher": "Laguna",
+    "publishYear": 2012,
+    "language": "Srpski",
+    "photo": "src/uploads/book_covekPoImenuUve.jpg",
+    "userId": 2,
+    "numberInStock": 5,
+    "status": "accepted",
+    "numberOfTimesTaken": 2,
+    "isBookOfTheDay": 0
+  },
+
+  {
+    "id": 3,
+    "name": "Kockar",
+    "authors": ["Fjodor Dostojevski"],
+    "genre": ["Roman", "Sci-fi"],
+    "publisher": "Otvorena knjiga",
+    "publishYear": 1866,
+    "language": "Ruski",
+    "photo": "src/uploads/book_kockar.jpg",
+    "userId": 2,
+    "numberInStock": 0,
+    "status": "pending",
+    "numberOfTimesTaken": 0,
+    "isBookOfTheDay": 0
+  },
+
+  {
+    "id": 4,
+    "name": "Gospodja ministarka",
+    "authors": ["Branislav Nusic"],
+    "genre": ["Komedija"],
+    "publisher": "Laguna",
+    "publishYear": 1929,
+    "language": "Srpski",
+    "photo": "src/uploads/book_gospodjaMinistarka.jpg",
+    "userId": 2,
+    "numberInStock": 0,
+    "status": "pending",
+    "numberOfTimesTaken": 0,
+    "isBookOfTheDay": 0
+  },
+
+  {
+    "id": 5,
+    "name": "Naruto Manga",
+    "authors": ["Masasi Kisimoto"],
+    "genre": ["Sci-fi"],
+    "publisher": "Laguna",
+    "publishYear": 2012,
+    "language": "Japanski",
+    "photo": "src/uploads/book_naruto.jpg",
+    "userId": 2,
+    "numberInStock": 5,
+    "status": "accepted",
+    "numberOfTimesTaken": 2,
+    "isBookOfTheDay": 0
+  },
+
+  {
+    "id": 6,
+    "name": "Romeo i Julija",
+    "authors": ["Vilijam Sekspir"],
+    "genre": ["Tragedija", "Drama"],
+    "publisher": "Knjiga komerc",
+    "publishYear": 1597,
+    "language": "Srpski",
+    "photo": "src/uploads/book_romeoIJulija.jpg",
+    "userId": 1,
+    "numberInStock": 5,
+    "status": "accepted",
+    "numberOfTimesTaken": 2,
+    "isBookOfTheDay": 0
+  },
+
+  {
+    "id": 7,
+    "name": "Dete u tebi mora da pronadje svoj zavicaj",
+    "authors": ["Stefani Stal"],
+    "genre": ["Popularna psihologija"],
+    "publisher": "Delfi",
+    "publishYear": 2019,
+    "language": "Srpski",
+    "photo": "src/uploads/book_deteZavicaj.jpg",
+    "userId": 1,
+    "numberInStock": 5,
+    "status": "accepted",
+    "numberOfTimesTaken": 2,
+    "isBookOfTheDay": 0
+  },
+
+  {
+    "id": 8,
+    "name": "Dozivljaji Toma Sojera",
+    "authors": ["Mark Tven"],
+    "genre": ["Roman"],
+    "publisher": "Delfi",
+    "publishYear": 1876,
+    "language": "Engleski",
+    "photo": "src/uploads/book_tomSojer.jpg",
+    "userId": 1,
+    "numberInStock": 5,
+    "status": "accepted",
+    "numberOfTimesTaken": 2,
+    "isBookOfTheDay": 0
+  }
+]

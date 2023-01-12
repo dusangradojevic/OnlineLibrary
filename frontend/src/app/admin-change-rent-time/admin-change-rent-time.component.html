@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <h1>Menjanje broj dana zaduzenja knjige</h1>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-12 col-md-3 offset-md-3"><b>Trenutni broj dana:</b></div>
+    <div class="col-12 col-md-3">
+      {{ rentLen }}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-3 offset-md-3"><b>Novi broj dana:</b></div>
+    <div class="col-12 col-md-3">
+      <input
+        type="number"
+        id="newRentLen"
+        [(ngModel)]="newRentLen"
+        value="14"
+        min="1"
+        style="width: 100px;"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-5 offset-md-3" style="padding-top: 10px">
+      <button class="btn btn-light" (click)="setNewRentDays()">
+        Postavi novi broj dana
+      </button>
+    </div>
+  </div>
+</div>

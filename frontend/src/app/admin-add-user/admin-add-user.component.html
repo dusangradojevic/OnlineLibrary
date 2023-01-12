@@ -1,0 +1,145 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <h1>Dodaj korisnika</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Ime*:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        type="text"
+        name="firstname"
+        [(ngModel)]="userReg.firstname"
+        style="width: 200px"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Prezime*:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        type="text"
+        name="lastname"
+        [(ngModel)]="userReg.lastname"
+        style="width: 200px"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Korisnicko ime*:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        type="text"
+        name="usernameReg"
+        [(ngModel)]="userReg.username"
+        style="width: 200px"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Lozinka*:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        type="password"
+        name="passReg"
+        [(ngModel)]="userReg.password"
+        style="width: 200px"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Potvrdite lozinku*:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        type="password"
+        name="passRegConfirm"
+        [(ngModel)]="confirmPassword"
+        style="width: 200px"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Telefon*:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        type="text"
+        name="phone"
+        [(ngModel)]="userReg.phone"
+        style="width: 200px"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Email*:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="userReg.email"
+        style="width: 200px"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Adresa*:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="userReg.address"
+        style="width: 200px"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Slika:</b></div>
+    <div class="col-12 col-md-4">
+      <input type="file" accept="image" (change)="selectImage($event)" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Tip*:</b></div>
+    <div class="col-12 col-md-4">
+      <select name="type" [(ngModel)]="userReg.type">
+        <option value="reader" selected="true">Citalac</option>
+        <option value="moderator">Moderator</option>
+      </select>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+      <td colspan="2" style="text-align: center">
+        <input
+          type="button"
+          class="btn btn-light"
+          value="Registruj korisnika"
+          (click)="register()"
+        />
+      </td>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 offset-md-3">
+      <div style="color: red">
+        {{ msgRegister }}
+      </div>
+    </div>
+  </div>
+</div>

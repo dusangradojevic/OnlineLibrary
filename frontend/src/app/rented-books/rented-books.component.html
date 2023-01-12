@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <h1 align="center">Pregled zaduzenih knjiga</h1>
+    </div>
+  </div>
+
+  <div
+    class="row"
+    *ngIf="this.rentedBooks == null || this.rentedBooks.length == 0"
+  >
+    <div class="col-12">
+      <h4 style="color: lightgreen">Nemate zaduzene knjige.</h4>
+    </div>
+  </div>
+
+  <table
+    class="table table-hover table-borderless"
+    *ngIf="this.rentedBooks.length > 0"
+  >
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Naziv</th>
+        <th>Autor</th>
+        <th>Broj dana za vracanje</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let book of this.rentedBooks; let i = index">
+        <td><img [src]="bookPhotos[i]" height="10%" /></td>
+        <td>{{ book.name }}</td>
+        <td>{{ book.authors.join(", ") }}</td>
+        <td [hidden]="calculateDateDiff(user.rentedBooksDateEnd[i]) < 0">
+          {{ calculateDateDiff(user.rentedBooksDateEnd[i]) }}
+        </td>
+        <td
+          [hidden]="calculateDateDiff(user.rentedBooksDateEnd[i]) >= 0"
+          style="color: red"
+        >
+          {{ calculateDateDiff(user.rentedBooksDateEnd[i]) }}
+        </td>
+        <td *ngIf="this.user.status != 'blocked'">
+          <button class="btn btn-light" (click)="goToBookDetails(book)">
+            Detalji
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-light" (click)="returnBook(i, book.id)">
+            Razduzi
+          </button>
+        </td>
+        <td
+          *ngIf="
+            user.rentedBooksExtended[i] == false &&
+            this.user.status != 'blocked'
+          "
+        >
+          <button
+            class="btn btn-light"
+            (click)="extendBookReturnDeadline(i, book.id)"
+          >
+            Produzi
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-12">
+      <span>{{ msgRentedBooks }}</span>
+    </div>
+  </div>
+</div>

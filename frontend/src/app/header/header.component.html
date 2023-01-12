@@ -1,0 +1,64 @@
+<div class="row" id="header">
+
+  <div class="col-12 col-md-2 offset-md-5 headerItem" (click)="toHomePage()" *ngIf="user == null">
+    <p class="headerText headerAppNameText">
+      Online biblioteka
+    </p>
+  </div>
+  
+  <div class="col-12 col-md-2 offset-md-2 headerItem" (click)="toHomePage()" *ngIf="user != null">
+    <p class="headerText headerAppNameText">
+      Online biblioteka
+    </p>
+  </div>
+
+  <div class="col-12 col-md-1 offset-md-5 headerItemList" *ngIf="user != null && user.type == 'admin'">
+    <div class="headerItem" (click)="logout()">
+      <p class="headerText">Odjava</p>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-4 offset-md-2 headerItemList" *ngIf="user != null && user.type != 'admin'">
+    <div class="headerItem" (click)="goToSearch()">
+      <p class="headerText">Pretraga</p>
+    </div>
+
+    &nbsp;&nbsp;&nbsp;
+
+    <div class="headerItem" (click)="goToRentedBooks()">
+      <p class="headerText">Zaduzene knjige</p>
+    </div>
+
+    &nbsp;&nbsp;&nbsp;
+
+    <div class="headerItem" (click)="goToRentHistory()">
+      <p class="headerText">Istorija zaduzenih knjiga</p>
+    </div>
+
+    &nbsp;&nbsp;&nbsp;
+
+    <div class="headerItem dropdown">
+      <p class="headerText">Obavestenja</p>
+      <div class="dropdown-content">
+        <p *ngIf="notifications.length == 0">Nemate novih obavestenja</p>
+        <p *ngFor="let notification of notifications">{{ notification }}</p>
+      </div>
+    </div>
+
+    &nbsp;&nbsp;&nbsp;
+
+    <div class="headerItem" (click)="logout()">
+      <p class="headerText">Odjava</p>
+    </div>
+
+    &nbsp;&nbsp;&nbsp;
+
+    <div
+      class="col-2 col-md-1"
+      id="headerProfilePicture"
+      (click)="goToUserProfile()"
+    >
+      <img [src]="picture" class="cursor" />
+    </div>
+  </div>
+</div>

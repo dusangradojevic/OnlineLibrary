@@ -1,0 +1,112 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <h1>Dodaj knjigu</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b> Naziv: </b></div>
+    <div class="col-12 col-md-4">
+      <input style="width: 200px" type="text" [(ngModel)]="newBook.name" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Broj autora:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        style="width: 200px"
+        type="number"
+        [(ngModel)]="authorsNumber"
+        max="3"
+        min="0"
+      />
+    </div>
+  </div>
+
+  <div
+    *ngFor="let item of createRange(authorsNumber); let i = index"
+    [hidden]="!authorsNumber"
+  >
+    <div class="row">
+      <div class="col-12 col-md-4 offset-md-3" *ngIf="i == 0"><b>Autori:*</b></div>
+      <div class="col-12 col-md-4" *ngIf="i == 0">
+        <input
+          style="width: 200px"
+          type="text"
+          [(ngModel)]="newBook.authors[i]"
+        />
+      </div>
+      <div class="col-12 col-md-4 offset-md-7" *ngIf="i > 0">
+        <input
+          style="width: 200px"
+          type="text"
+          [(ngModel)]="newBook.authors[i]"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Zanrovi:</b></div>
+    <div class="col-12 col-md-4">
+      <select style="width: 200px" multiple [(ngModel)]="newBook.genre">
+        <option *ngFor="let genre of this.bookGenres" value="{{ genre.name }}">
+          {{ genre.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Izdavac:</b></div>
+    <div class="col-12 col-md-4">
+      <input style="width: 200px" type="text" [(ngModel)]="newBook.publisher" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Godina izdavanja:</b></div>
+    <div class="col-12 col-md-4">
+      <input
+        style="width: 200px"
+        type="text"
+        [(ngModel)]="newBook.publishYear"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Jezik:</b></div>
+    <div class="col-12 col-md-4">
+      <input style="width: 200px" type="text" [(ngModel)]="newBook.language" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-3"><b>Slika:</b></div>
+    <div class="col-12 col-md-4">
+      <input type="file" accept="image" (change)="selectImage($event)" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 offset-md-3">
+      <input
+        type="button"
+        class="btn btn-light"
+        value="Dodaj knjigu"
+        (click)="insertBook()"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <span class="error">{{ msgInsertBook }}</span>
+    </div>
+  </div>
+</div>

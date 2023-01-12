@@ -1,0 +1,208 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <h1>Korisnici u sistemu:</h1>
+    </div>
+  </div>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Ime</th>
+        <th scope="col">Prezime</th>
+        <th scope="col">Tip</th>
+        <th scope="col">Broj knjiga</th>
+        <th scope="col">Email</th>
+        <th scope="col">Promena tipa</th>
+        <th scope="col">Blokiranje</th>
+        <th scope="col">Prihvati</th>
+        <th scope="col">Odbij</th>
+        <th scope="col">Obrisi</th>
+        <th scope="col">Promeni podatke</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of this.users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.type }}</td>
+        <td>{{ user.rentedBooks.length }}</td>
+        <td>{{ user.email }}</td>
+
+        <td>
+          <div *ngIf="user.type == 'reader'">
+            <button
+              class="btn btn-light"
+              (click)="upgradeReaderToModerator(user)"
+            >
+              Moderator
+            </button>
+          </div>
+
+          <div *ngIf="user.type == 'moderator'">
+            <button
+              class="btn btn-light"
+              (click)="downgradeModeratorToReader(user)"
+            >
+              Citalac
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.status != 'blocked' && user.type != 'admin'">
+            <button class="btn btn-light" (click)="blockUser(user)">
+              Blokiraj
+            </button>
+          </div>
+          <div *ngIf="user.status == 'blocked' && user.type != 'admin'">
+            <button class="btn btn-light" (click)="unblockUser(user)">
+              Odblokiraj
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.status == 'pending'">
+            <button class="btn btn-light" (click)="acceptUser(user)">
+              Prihvati
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.status == 'pending'">
+            <button class="btn btn-light" (click)="rejectUser(user)">
+              Odbij
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.type != 'admin'">
+            <button class="btn btn-light" (click)="deleteUser(user)">
+              Obrisi
+            </button>
+          </div>
+        </td>
+
+        <td style="text-align: center">
+          <button class="btn btn-light" (click)="goToUserModifyPage(user)">
+            Promeni
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Ime</th>
+        <th scope="col">Prezime</th>
+        <th scope="col">Tip</th>
+        <th scope="col">Broj knjiga</th>
+        <th scope="col">Email</th>
+        <th scope="col">Unapredi u moderatora</th>
+        <th scope="col">Vrati u citaoca</th>
+        <th scope="col">Blokiranje</th>
+        <th scope="col">Odblokoraj</th>
+        <th scope="col">Prihvati</th>
+        <th scope="col">Odbij</th>
+        <th scope="col">Obrisi</th>
+        <th scope="col">Promeni podatke</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of this.users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.type }}</td>
+        <td>{{ user.rentedBooks.length }}</td>
+        <td>{{ user.email }}</td>
+
+        <td>
+          <div *ngIf="user.type == 'reader'">
+            <button
+              class="btn btn-light"
+              (click)="upgradeReaderToModerator(user)"
+            >
+              Unapredi
+            </button>
+          </div>
+        </td>
+
+        <td style="text-align: center">
+          <div *ngIf="user.type == 'moderator'">
+            <button
+              class="btn btn-light"
+              (click)="downgradeModeratorToReader(user)"
+            >
+              Vrati
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.status != 'blocked' && user.type != 'admin'">
+            <button class="btn btn-light" (click)="blockUser(user)">
+              Blokiraj
+            </button>
+          </div>
+          <div *ngIf="user.status == 'blocked' && user.type != 'admin'">
+            <button class="btn btn-light" (click)="unblockUser(user)">
+              Odblokiraj
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.status == 'blocked'">
+            <button class="btn btn-light" (click)="unblockUser(user)">
+              Odblokiraj
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.status == 'pending'">
+            <button class="btn btn-light" (click)="acceptUser(user)">
+              Prihvati
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.status == 'pending'">
+            <button class="btn btn-light" (click)="rejectUser(user)">
+              Odbij
+            </button>
+          </div>
+        </td>
+
+        <td>
+          <div *ngIf="user.type != 'admin'">
+            <button class="btn btn-light" (click)="deleteUser(user)">
+              Obrisi
+            </button>
+          </div>
+        </td>
+
+        <td style="text-align: center">
+          <button class="btn btn-light" (click)="goToUserModifyPage(user)">
+            Promeni
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+</div>

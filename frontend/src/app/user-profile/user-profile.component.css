@@ -1,0 +1,20 @@
+.divSingleChart {
+  display: block;
+  width: 400px;
+  height: 400px;
+}
+
+.divMultipleCharts {
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  max-width: 80px;
+  max-height: 100px;
+}
+
+.profilePicture {
+  max-width: 200px;
+  max-height: 380px;
+}

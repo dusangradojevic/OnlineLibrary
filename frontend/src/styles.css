@@ -1,0 +1,41 @@
+.container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(220, 238, 255, 1.0);
+}
+
+.content {
+  align-items: center;
+  padding-left: 450px;
+  padding-right: 450px;
+  min-height: 907px;
+}
+
+.error {
+  color: red;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.hAlignLeft {
+  text-align: left;
+}
+
+/*.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}*/

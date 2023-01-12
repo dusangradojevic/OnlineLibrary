@@ -1,0 +1,53 @@
+[
+  {
+    "id": 0,
+    "name": "Horor"
+  },
+
+  {
+    "id": 1,
+    "name": "Sci-Fi"
+  },
+
+  {
+    "id": 2,
+    "name": "Naucna fantastika"
+  },
+
+  {
+    "id": 3,
+    "name": "Samopomoc"
+  },
+
+  {
+    "id": 4,
+    "name": "Zdravlje"
+  },
+
+  {
+    "id": 5,
+    "name": "Tragedija"
+  },
+
+  {
+    "id": 6,
+    "name": "Drama"
+  },
+
+  {
+    "id": 7,
+    "name": "Beletristika"
+  },
+  {
+    "id": 8,
+    "name": "Komedija"
+  },
+  {
+    "id": 9,
+    "name": "Popularna psihologija"
+  },
+  {
+    "id": 10,
+    "name": "Roman"
+  }
+]

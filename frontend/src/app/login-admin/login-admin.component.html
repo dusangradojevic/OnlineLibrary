@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="row">
+    <div class="col-12"><h3>Prijava</h3></div>
+  </div>
+
+  <form>
+    <div class="row">
+      <div class="col-12 col-md-2 offset-md-3"><b>Korisnicko ime:</b></div>
+      <div class="col-12 col-md-4">
+        <input type="text" name="usernameLog" [(ngModel)]="usernameLogin" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-2 offset-md-3"><b>Lozinka:</b></div>
+      <div class="col-12 col-md-4">
+        <input type="password" name="passLog" [(ngModel)]="passwordLogin" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 offset-md-3">
+        <input
+          type="button"
+          class="btn btn-light"
+          value="Prijavi se"
+          (click)="login()"
+        />
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col-12">
+      <b
+        ><span class="error">{{ msgLogin }}</span></b
+      >
+    </div>
+  </div>
+</div>
